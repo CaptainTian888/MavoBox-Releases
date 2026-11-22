@@ -1,8 +1,9 @@
 {
-  "name": "mavobox-site",
+  "name": "mavobox-releases",
   "main": "src/worker.js",
+  "account_id": "159bca03dd80c08c03d43c996ebe6a98",
   "compatibility_date": "2026-11-01",
   "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
-  "d1_databases": [{ "binding": "DB", "database_name": "mavobox-site", "database_id": "REPLACE_WITH_D1_ID", "migrations_dir": "migrations" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "mavobox-site", "database_id": "f68e6282-8108-4c40-844e-3d671cd037dc", "migrations_dir": "migrations" }],
   "vars": { "RELEASES_REPO": "CaptainTian888/MavoBox-Releases", "TIMEZONE_OFFSET_MINUTES": "480" }
 }
