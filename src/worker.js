@@ -4,15 +4,34 @@ const error = (code,status) => json({error:code},status);
 const configured = env => [env.ADMIN_PASSWORD,env.SESSION_SECRET].every(s => typeof s === 'string' && s.length >= 12);
 const today = env => dayKey(new Date(), Number(env.TIMEZONE_OFFSET_MINUTES ?? 480));
 const changes = r => Number(r.meta?.changes || 0);
+// Latest release in GitHub-API shape ({tag_name, published_at, body, assets[]}) or null when none exists.
+// The unauthenticated GitHub API is rate-limited per egress IP (shared on Cloudflare), so an optional GITHUB_TOKEN
+// secret is used when set, and on any API failure we fall back to the release's public latest.json updater feed.
+async function fromApi(env) {
+  const headers = {'User-Agent':'mavobox-site','Accept':'application/vnd.github+json'};
+  if (env.GITHUB_TOKEN) headers.Authorization = `Bearer ${env.GITHUB_TOKEN}`;
+  const response = await fetch(`https://api.github.com/repos/${env.RELEASES_REPO}/releases/latest`,{headers});
+  if (response.status === 404) return null;
+  if (!response.ok) { console.log('github api status', response.status); return undefined; }
+  return response.json();
+}
+async function fromFeed(env) {
+  const response = await fetch(`https://github.com/${env.RELEASES_REPO}/releases/latest/download/latest.json`,{headers:{'User-Agent':'mavobox-site'},redirect:'follow'});
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error('release_unavailable');
+  const feed = await response.json();
+  const assets = Object.values(feed.platforms || {}).map(p => p && p.url).filter(u => typeof u === 'string' && u.startsWith('https://github.com/'))
+    .map(u => ({name: decodeURIComponent(u.split('/').pop()), browser_download_url: u}));
+  return {tag_name: feed.version ? `v${String(feed.version).replace(/^v/,'')}` : null, published_at: feed.pub_date || null, body: feed.notes || '', assets};
+}
 async function release(env,ctx) {
-  const url = `https://api.github.com/repos/${env.RELEASES_REPO}/releases/latest`;
+  const key = `https://mavobox-site.cache/release/${env.RELEASES_REPO}`;
   const cache = caches.default;
-  const cached = await cache.match(url);
+  const cached = await cache.match(key);
   if (cached) return cached.json();
-  const response = await fetch(url,{headers:{'User-Agent':'mavobox-site','Accept':'application/vnd.github+json'}});
-  if (response.status !== 404 && !response.ok) throw new Error('release_unavailable');
-  const result = response.status === 404 ? null : await response.json();
-  ctx.waitUntil(cache.put(url,json(result,200,{'Cache-Control':'public, max-age=600'})));
+  let result = await fromApi(env);
+  if (result === undefined) result = await fromFeed(env);
+  ctx.waitUntil(cache.put(key,json(result,200,{'Cache-Control':'public, max-age=600'})));
   return result;
 }
 async function quota(env) {
