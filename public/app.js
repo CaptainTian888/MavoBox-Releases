@@ -1,5 +1,12 @@
 import {t,lang,initLanguage} from './i18n.js';
 const $=id=>document.getElementById(id);
+// Scroll-reveal: content is visible without JS; only hide-then-reveal once JS and IntersectionObserver are available.
+if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.documentElement.classList.add('js');
+  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+if($('year'))$('year').textContent=String(new Date().getFullYear());
 let latest=null,open=false,message='',pending=false;
 function render(){
   $('release-info').textContent=latest?.version ? `${latest.version} · ${latest.published_at ? new Date(latest.published_at).toLocaleDateString(lang()):''}` : t(latest ? 'noRelease':'loading');

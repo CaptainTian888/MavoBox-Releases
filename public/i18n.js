@@ -1,4 +1,5 @@
-const pairs = {
+import {siteText} from './i18n-site.js';
+const basePairs = {
   navFeatures:['功能','Features'],navPrivacy:['隐私','Privacy'],navFAQ:['常见问题','FAQ'],download:['下载','Download'],
   eyebrow:['为 TikTok 创作者而生','MADE FOR TIKTOK CREATORS'],hero:['把灵感，变成下一条好视频。','Turn your inspiration into your next great video.'],intro:['从爆款拆解、智能混剪到多账号发布。一个在你电脑上运行的短视频工作台。','From viral-hook analysis and smart edits to multi-account publishing. Your short-video workspace, running on your computer.'],heroNote:['Windows / macOS · 本地优先 · 无需云端账号','Windows / macOS · Local first · No cloud account'],
   preview:['创作流程示意','YOUR CREATIVE WORKFLOW'],previewTitle:['一个想法，多种可能。','One idea. Many possibilities.'],previewSub:['参考视频 → 脚本与分镜 → 竖屏成片','Reference → Script & shots → Vertical video'],previewFoot:['你的素材。你的 API。你的节奏。','Your footage. Your APIs. Your pace.'],
@@ -11,6 +12,7 @@ const pairs = {
   invalid_input:['请检查邀请码、平台或输入格式。','Check your invite code, platform or input format.'],invalid_code:['邀请码不存在，请核对后重试。','Invite code not found. Check it and try again.'],code_used:['此邀请码已使用，请使用之前的下载链接或获取新码。','This code was used. Use your previous download link or request another code.'],limit_reached:['今日下载名额已满，请明天再来。','Today’s quota is full. Please return tomorrow.'],no_asset:['该系统安装包尚未发布。','An installer for this platform is not available yet.'],no_release:['尚无可用版本，请稍后再来。','No release is available yet. Please return later.'],not_configured:['服务尚未配置完成，请联系管理员。','The service is not configured yet. Contact the administrator.'],service_unavailable:['服务暂时不可用，请稍后重试。','Service unavailable. Please try again later.'],unauthorized:['请登录，或检查密码。','Please sign in or check your password.'],too_many_attempts:['尝试次数过多，请在 15 分钟窗口结束后重试。','Too many attempts. Retry after the 15-minute window ends.'],not_found:['未找到该项目。','Item not found.'],busy:['处理中…','Working…'],
   admin:['下载管理','Download administration'],password:['管理员密码','Administrator password'],login:['登录','Sign in'],logout:['退出','Sign out'],today:['今日下载 / 限额','Downloads today / limit'],limit:['每日限额（0 为关闭）','Daily limit (0 closes downloads)'],save:['保存','Save'],generate:['生成邀请码','Generate codes'],count:['数量（1–100）','Count (1–100)'],note:['备注（最多 100 字）','Note (up to 100 characters)'],codes:['邀请码列表（最近 500 个）','Invite codes (latest 500)'],all:['全部','All'],unused:['未使用','Unused'],used:['已使用','Used'],copy:['复制','Copy'],copyUnused:['复制全部未使用','Copy all unused'],remove:['删除','Delete'],created:['创建时间','Created'],redeemed:['使用时间 / 平台','Redeemed / platform'],history:['最近 14 天','Last 14 days'],day:['日期（UTC+8）','Day (UTC+8)'],downloads:['下载次数','Downloads'],saved:['已保存','Saved'],copied:['已复制','Copied'],copyFailed:['复制失败，请手动选择文本复制。','Copy failed. Please select and copy the text manually.'],empty:['暂无记录','No records yet']
 };
+const pairs = {...basePairs, ...siteText};
 let language='zh-CN';
 try { if(localStorage.getItem('mb_language')==='en') language='en'; } catch {}
 export const t = key => pairs[key]?.[language==='en'?1:0] ?? key;
