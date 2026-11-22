@@ -32,6 +32,7 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="#features" data-i18n="navFeatures"></a>
+        <a href="#engine" data-i18n="navEngine"></a>
         <a href="#how" data-i18n="navHow"></a>
         <a href="#privacy" data-i18n="navPrivacy"></a>
         <a href="#faq" data-i18n="navFAQ"></a>
@@ -191,6 +192,87 @@
           </div>
         </div>
       </article>
+    </section>
+
+    <!-- PARALLEL ENGINE: PIPELINE + SWARM -->
+    <section id="engine" class="band">
+      <div class="wrap section">
+        <header class="section-head reveal">
+          <p class="eyebrow" data-i18n="engEyebrow"></p>
+          <h2 data-i18n="engTitle"></h2>
+          <p class="sub" data-i18n="engSub"></p>
+        </header>
+
+        <div class="engine-grid">
+          <article class="engine-card reveal" aria-labelledby="pipe-title">
+            <p class="tag tag-cyan" data-i18n="pipeTag"></p>
+            <h3 id="pipe-title" data-i18n="pipeTitle"></h3>
+            <p class="muted" data-i18n="pipeText"></p>
+            <div class="gantt" aria-hidden="true">
+              <p class="gantt-label" data-i18n="ganttSerial"></p>
+              <div class="gantt-row serial">
+                <span class="g-anchor gs-1"></span><span class="g-video gs-2"></span><span class="g-video gs-3"></span><span class="g-video gs-4"></span><span class="g-voice gs-5"></span><span class="g-render gs-6"></span>
+              </div>
+              <p class="gantt-label" data-i18n="ganttParallel"></p>
+              <div class="gantt-par">
+                <div class="gantt-row"><span class="g-anchor gp-a"></span><span class="g-video gp-v1"></span></div>
+                <div class="gantt-row"><span class="g-video gp-v2"></span></div>
+                <div class="gantt-row"><span class="g-video gp-v3"></span></div>
+                <div class="gantt-row"><span class="g-voice gp-s"></span></div>
+                <div class="gantt-row"><span class="g-render gp-r"></span></div>
+              </div>
+              <div class="gantt-legend">
+                <span><i class="g-anchor"></i><b data-i18n="lgAnchor"></b></span>
+                <span><i class="g-video"></i><b data-i18n="lgVideo"></b></span>
+                <span><i class="g-voice"></i><b data-i18n="lgVoice"></b></span>
+                <span><i class="g-render"></i><b data-i18n="lgRender"></b></span>
+              </div>
+              <p class="gantt-saving"><strong>≈ 2.2×</strong> <span data-i18n="ganttSaving"></span></p>
+            </div>
+          </article>
+
+          <article class="engine-card reveal" aria-labelledby="swarm-title">
+            <p class="tag tag-purple" data-i18n="swarmTag"></p>
+            <h3 id="swarm-title" data-i18n="swarmTitle"></h3>
+            <p class="muted" data-i18n="swarmText"></p>
+            <div class="hive" aria-hidden="true">
+              <i class="b-done"></i><i class="b-done"></i><i class="b-run"></i><i class="b-done"></i><i class="b-run"></i>
+              <i class="b-run"></i><i class="b-done"></i><i class="b-queue"></i><i class="b-run"></i><i class="b-done"></i>
+              <i class="b-queue"></i><i class="b-run"></i><i class="b-done"></i><i class="b-queue"></i><i class="b-run"></i>
+              <i class="b-done"></i><i class="b-queue"></i><i class="b-run"></i><i class="b-queue"></i><i class="b-done"></i>
+            </div>
+            <div class="hive-legend">
+              <span><i class="b-done"></i><b data-i18n="hvDone"></b></span>
+              <span><i class="b-run"></i><b data-i18n="hvRun"></b></span>
+              <span><i class="b-queue"></i><b data-i18n="hvQueue"></b></span>
+            </div>
+            <ul class="checks compact">
+              <li data-i18n="swarm1"></li><li data-i18n="swarm2"></li><li data-i18n="swarm3"></li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid four engine-points">
+          <article class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="4" height="14" rx="1"/><rect x="10" y="5" width="4" height="14" rx="1"/><rect x="17" y="5" width="4" height="14" rx="1"/></svg></span><h3 data-i18n="ep1"></h3><p data-i18n="ep1t"></p></article>
+          <article class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 14a8 8 0 0 1 16 0M12 14l4-4M4 18h16"/></svg></span><h3 data-i18n="ep2"></h3><p data-i18n="ep2t"></p></article>
+          <article class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9h6v6H9z"/></svg></span><h3 data-i18n="ep3"></h3><p data-i18n="ep3t"></p></article>
+          <article class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 12h4l3-7 4 14 3-7h2"/></svg></span><h3 data-i18n="ep4"></h3><p data-i18n="ep4t"></p></article>
+        </div>
+
+        <div class="autopilot reveal">
+          <div>
+            <p class="tag tag-indigo" data-i18n="apTag"></p>
+            <h3 data-i18n="apTitle"></h3>
+            <p class="muted" data-i18n="apText"></p>
+          </div>
+          <ol class="ap-flow" aria-label="Autopilot">
+            <li><b>1</b><span data-i18n="ap1"></span></li>
+            <li><b>2</b><span data-i18n="ap2"></span></li>
+            <li><b>3</b><span data-i18n="ap3"></span></li>
+            <li><b>4</b><span data-i18n="ap4"></span></li>
+          </ol>
+        </div>
+      </div>
     </section>
 
     <!-- MORE CAPABILITIES -->
