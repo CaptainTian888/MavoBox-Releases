@@ -1,8 +1,8 @@
-# MAVO BOX 发布与官网
+# MavoBox 发布与官网
 
 本公开仓库通过 GitHub Releases 分发 Windows / macOS 安装包，同时维护产品官网。官网采用一个 Cloudflare Worker、静态 HTML/CSS/JavaScript 与 D1，无框架、无构建步骤。
 
-MAVO BOX 是本地优先的 TikTok 短视频桌面工具，提供爆款克隆、智能混剪与多账号定时发布。安装后无需激活码，AI 服务由用户自行配置并付费。网站邀请码仅用于一次安装包下载领取。
+MavoBox 是本地优先的 TikTok 短视频桌面工具，提供爆款克隆、智能混剪与多账号定时发布。安装后无需激活码，AI 服务由用户自行配置并付费。网站邀请码仅用于一次安装包下载领取。
 
 ## 部署
 
@@ -58,7 +58,7 @@ npm test
 将构建完成的文件上传至本仓库的 GitHub Releases，例如：
 
 ```powershell
-gh release create vX.Y.Z "MAVO BOX_X.Y.Z_x64-setup.exe" "MAVO BOX_X.Y.Z_x64-setup.exe.sig" latest.json SHA256SUMS.txt "MAVO BOX_X.Y.Z_aarch64.dmg" --title "MAVO BOX vX.Y.Z" --notes-file release-notes.md -R CaptainTian888/MavoBox-Releases
+gh release create vX.Y.Z "MavoBox_X.Y.Z_x64-setup.exe" "MavoBox_X.Y.Z_x64-setup.exe.sig" latest.json SHA256SUMS.txt "MavoBox_X.Y.Z_aarch64.dmg" --title "MavoBox vX.Y.Z" --notes-file release-notes.md -R CaptainTian888/MavoBox-Releases
 ```
 
 版本号和路径替换为实际产物；`release-notes.md` 由发布者准备。Windows 上传 setup `.exe` 及其 `.sig`，同时上传更新清单 `latest.json` 和校验文件 `SHA256SUMS.txt`；macOS 上传 `.dmg`。不要上传签名私钥或凭据。官网优先选名称包含 setup 的 `.exe`；没有对应安装包的平台不可领取。

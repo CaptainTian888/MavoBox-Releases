@@ -77,8 +77,8 @@ export const siteText = {
   navEngine: ['并行引擎', 'Parallel engine'],
   engEyebrow: ['并行引擎 · 蜂群模式 + 流水线', 'Parallel engine · swarm + pipelines'],
   engTitle: ['不再一件一件排队等，所有能同时做的事都同时做。', 'Stop waiting in line — everything that can run at once, does.'],
-  engSub: ['MAVO BOX 把每个流程拆成相互独立的小任务，按依赖关系自动排成流水线；多个项目、多个变体像蜂群一样同时推进。付费 AI 调用和本地渲染各有并发上限，快，但不失控。',
-    'MAVO BOX breaks every flow into independent steps and arranges them into a dependency-aware pipeline, while many projects and variants advance together like a swarm. Paid AI calls and local rendering each have their own concurrency caps — fast, but never out of control.'],
+  engSub: ['MavoBox 把每个流程拆成相互独立的小任务，按依赖关系自动排成流水线；多个项目、多个变体像蜂群一样同时推进。付费 AI 调用和本地渲染各有并发上限，快，但不失控。',
+    'MavoBox breaks every flow into independent steps and arranges them into a dependency-aware pipeline, while many projects and variants advance together like a swarm. Paid AI calls and local rendering each have their own concurrency caps — fast, but never out of control.'],
   pipeTag: ['多任务流水线并行', 'Pipelined multi-tasking'],
   pipeTitle: ['一条成片里的步骤，能并行的全部并行。', 'Inside one video, every step that can overlap does.'],
   pipeText: ['定妆图一完成，用到它的镜头视频立刻同时开拍；配音和视频一起生成；全部就绪后自动组装、渲染。智能混剪里，多个素材同时切镜头，每切完一个就马上交给大模型打标签。',
@@ -122,7 +122,7 @@ export const siteText = {
   howTitle: ['一切都在你的电脑里发生。', 'Everything happens on your computer.'],
   howSub: ['只有在你确认之后，才会调用你自己配置的 AI 服务。', 'Your own AI services are called only after you confirm.'],
   archPc: ['你的电脑', 'Your computer'],
-  archUi: ['MAVO BOX 桌面窗口', 'MAVO BOX desktop window'],
+  archUi: ['MavoBox 桌面窗口', 'MavoBox desktop window'],
   archBackend: ['本地后端 · 仅监听 127.0.0.1', 'Local backend · 127.0.0.1 only'],
   archQueue: ['任务队列与调度', 'Task queue & scheduler'],
   archMedia: ['ffmpeg · yt-dlp · Playwright', 'ffmpeg · yt-dlp · Playwright'],
@@ -172,7 +172,7 @@ export const siteText = {
   network: ['网络：AI 服务、视频下载、发布和更新需要联网，均直连你配置的服务。', 'Network: AI services, downloads, publishing and updates need internet and talk directly to the services you configure.'],
 
   // download
-  downloadEyebrow: ['获取 MAVO BOX', 'Get MAVO BOX'],
+  downloadEyebrow: ['获取 MavoBox', 'Get MavoBox'],
   downloadTitle: ['输入邀请码，领取安装包', 'Enter your invite code to download'],
   downloadSub: ['邀请码由课程老师或团队管理员发放。每个邀请码只能使用一次，领取后 1 小时内可重复下载。', 'Invite codes come from your course teacher or team admin. Each code works once; the link stays valid for an hour so you can retry.'],
   latestLabel: ['最新版本', 'Latest version'],
